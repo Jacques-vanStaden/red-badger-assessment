@@ -1,21 +1,23 @@
+import { readFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import { run } from '../src/Application';
 
+const dataDirectory = join(dirname(fileURLToPath(import.meta.url)), '..', 'data');
+
+function readSample(fileName: string): string {
+    return readFileSync(join(dataDirectory, fileName), 'utf8')
+        .replace(/\r\n/g, '\n')
+        .trim();
+}
+
 describe('Application', () => {
     it('produces the expected output for the sample input', () => {
-        const input = `5 3
-1 1 E
-RFRFRFRF
-3 2 N
-FRRFLLFFRRFLL
-0 3 W
-LLFFFLFLFL`;
+        const input = readSample('sample-input.txt');
+        const expected = readSample('sample-output.txt');
 
-        const output = run(input);
-
-        expect(output).toBe(`1 1 E
-3 3 N LOST
-2 3 S`);
+        expect(run(input)).toBe(expected);
     });
 
     it('rejects a robot starting outside the grid', () => {

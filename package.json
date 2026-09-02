@@ -7,7 +7,7 @@
         "start": "tsx src/index.ts",
         "test": "vitest run",
         "test:watch": "vitest",
-        "typecheck": "tsc --noEmit",
+        "typecheck": "tsc --noEmit && tsc -p tsconfig.test.json",
         "build": "tsc"
     },
     "devDependencies": {
