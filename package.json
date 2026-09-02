@@ -1,19 +1,19 @@
 {
-  "name": "redbadger-assessment",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "vitest run"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "devDependencies": {
-    "@types/node": "^26.4.1",
-    "tsx": "^4.23.13",
-    "typescript": "^7.0.2",
-    "vitest": "^4.1.11"
-  }
+    "name": "redbadger-martian-robots",
+    "version": "1.0.0",
+    "private": true,
+    "description": "A TypeScript implementation of the Martian Robots programming challenge.",
+    "scripts": {
+        "start": "tsx src/index.ts",
+        "test": "vitest run",
+        "test:watch": "vitest",
+        "typecheck": "tsc --noEmit",
+        "build": "tsc"
+    },
+    "devDependencies": {
+        "@types/node": "^24.0.0",
+        "tsx": "^4.20.3",
+        "typescript": "^5.9.2",
+        "vitest": "^3.2.4"
+    }
 }

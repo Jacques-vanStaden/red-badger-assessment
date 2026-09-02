@@ -4,9 +4,13 @@ export class Grid {
     private readonly scents = new Set<string>();
 
     constructor(
-        readonly maxX: number,
-        readonly maxY: number,
-    ) {}
+    readonly maxX: number,
+    readonly maxY: number,
+    ) {
+        if (maxX < 0 || maxY < 0) {
+            throw new Error('Grid dimensions cannot be negative');
+        }
+    }
 
     contains(position: Position): boolean {
         return (

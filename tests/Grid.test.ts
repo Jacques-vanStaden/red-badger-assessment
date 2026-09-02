@@ -37,3 +37,9 @@ describe('Grid', () => {
         });
     });
 });
+
+it('rejects negative grid dimensions', () => {
+    expect(() => new Grid(-1, 3)).toThrow(
+        'Grid dimensions cannot be negative',
+    );
+});
